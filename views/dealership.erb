@@ -1,0 +1,12 @@
+<div class="row text-center">
+  <h2><%= @dealership.name =%></h2>
+  <p class="lead">
+    Car Listing
+  </p>
+</div>
+
+<ul>
+  <% @dealership.cars.each do | car | %>
+  <li><a href="/dealership/<%= @dealership.id %>/cars/<%= car.id %>"></a></li>
+  <% end %>
+</ul>

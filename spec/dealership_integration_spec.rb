@@ -27,3 +27,10 @@ describe('when adding a dealership page', { :type => :feature }) do
     expect(page).to have_content('Tim\'s Dealers')
   end
 end
+
+describe('when viewing an individual dealer page', { :type => :feature }) do
+  it('shows a list of cars the dealer own') do
+    visit '/dealerships/1'
+    expect(page).to have_content('Car Listing')
+  end
+end
