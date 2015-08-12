@@ -12,7 +12,7 @@ get('/') do
       test_dealership = Dealership.new("dealership#{index}")
       test_dealership.save
     end
-    puts Dealership.all
+    # puts Dealership.all
   end
   erb(:index)
 end
@@ -23,5 +23,5 @@ get('/dealerships') do
 end
 
 get('/dealership_form') do
-  
+
 end

@@ -10,3 +10,11 @@ describe('when using the dealership site', { :type => :feature }) do
     expect(page).to have_content('View Dealerships')
   end
 end
+
+
+describe('when viewing dealerships page', { :type => :feature }) do
+  it('') do
+    visit '/dealerships'
+    expect(page).to have_content('Dealership List')
+  end
+end

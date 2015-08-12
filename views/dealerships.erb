@@ -1,10 +1,11 @@
+<h2>Dealership List</h2>
+
 <ul>
 
+  <% @dealerships.each do | dealership | %>
 
-<% @dealerships.each do | dealership | %>
+  <li><a href="/dealerships/<%= dealership.id %>"><%= dealership.name %></a></li>
 
-<li><a href="/dealerships/<%= dealership.id %>"><%= dealership.name %></a></li>
-
-<% end %>
+  <% end %>
 
 </ul>
