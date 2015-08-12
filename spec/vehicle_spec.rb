@@ -5,7 +5,6 @@ describe(Vehicle) do
 
   before() do
     @test_vehicle = Vehicle.new("make", "model", 2012)
-
   end
 
   describe('#make') do
@@ -45,4 +44,17 @@ describe(Vehicle) do
       expect(Vehicle.all()).to eq([])
     end
   end
+
+  describe('#age') do
+    it('returns the age of the vehicle') do
+      expect(@test_vehicle.age).to eq(3)
+    end
+  end
+
+  describe('#id') do
+    it('returns the vehicle by its id') do
+      expect(@test_vehicle.id).to eq(1)
+    end
+  end
+
 end
