@@ -32,4 +32,13 @@ class Vehicle
     end
   end
 
+  define_singleton_method(:find) do | number |
+    found_vehicle = nil
+    @@vehicles.each do | vehicle |
+      if vehicle.id() == number
+        found_vehicle = vehicle
+      end
+    end
+    found_vehicle
+  end
 end

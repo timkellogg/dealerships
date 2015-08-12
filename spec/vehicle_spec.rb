@@ -57,4 +57,11 @@ describe(Vehicle) do
     end
   end
 
+  describe('.find') do
+    it('returns the vehicle by its id') do
+      @test_vehicle.save()
+      expect(Vehicle.find(1)).to eq(@test_vehicle)
+    end
+  end
+
 end
