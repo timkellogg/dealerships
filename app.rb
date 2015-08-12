@@ -23,5 +23,12 @@ get('/dealerships') do
 end
 
 get('/dealership_form') do
+  erb(:dealership_form)
+end
 
+post('/dealerships') do
+  dealership_name = params.fetch 'dealership_name'
+  Dealership.new(dealership_name).save
+  @dealerships = Dealership.all
+  erb(:dealerships)
 end
