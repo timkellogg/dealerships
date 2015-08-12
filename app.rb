@@ -10,7 +10,10 @@ get('/') do
     10.times do
       index += 1
       test_dealership = Dealership.new("dealership#{index}")
-      test_dealership.save
+      # vehicle = Vehicle.new("Toyota", "Prius", 2009)
+      # vehicle.save
+      # test_dealership.add_vehicle(vehicle)
+      # test_dealership.save
     end
     # puts Dealership.all
   end
@@ -43,8 +46,16 @@ post('/dealerships/:id') do
   make  = params.fetch 'make'
   model = params.fetch 'model'
   year  = params.fetch('year').to_i
-  @dealership.add_vehicle(Vehicle.new(make, model, year))
+  vehicle = Vehicle.new(make, model, year)
+  vehicle.save
+  @dealership.add_vehicle(vehicle)
   erb(:dealership)
+end
+
+get('/cars/:id') do
+  @dealerships = Dealership.all
+  @car = Vehicle.find(params.fetch('id').to_i())
+  erb(:car)
 end
 
 get('/cars') do
@@ -52,6 +63,6 @@ get('/cars') do
   erb(:cars)
 end
 
-get('/*') do
-  erb(:index)
-end
+# get('/*') do
+#   erb(:index)
+# end

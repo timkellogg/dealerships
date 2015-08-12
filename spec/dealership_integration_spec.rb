@@ -44,3 +44,11 @@ describe('when viewing an individual dealer page', { :type => :feature }) do
     expect(page).to have_content('Chevy Corvette 2015')
   end
 end
+
+
+describe('when viewing the cars listings of all dealerships', { :type => :feature }) do
+  it('prints out a list of all the cars with links to their car pages') do
+    visit('/cars')
+    expect(page).to have_content 'All Available Cars'
+  end
+end

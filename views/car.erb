@@ -4,4 +4,5 @@
     <li><%= @car.model %> </li>
     <li><%= @car.year %> </li>
   </ul>
+  <p class="lead">Find this Car at: <a href="/dealerships/<%= Dealership.find_car(@car.id).id %>"><%= Dealership.find_car(@car.id).name %></a> </p>
 </div>
