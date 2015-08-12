@@ -34,4 +34,10 @@ describe(Dealership) do
     end
   end
 
+  describe('#cars') do
+    it('returns all of the cars of the dealership (empty by default)') do
+      expect(@test_dealership.cars).to eq([])
+    end
+  end
+
 end
