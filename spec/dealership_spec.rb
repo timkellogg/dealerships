@@ -40,4 +40,11 @@ describe(Dealership) do
     end
   end
 
+  describe('#add_vehicle') do
+    it('adds a car into the the cars array') do
+      @test_dealership.add_vehicle(@test_vehicle)
+      expect(@test_dealership.cars).to eq([@test_vehicle])
+    end
+  end
+
 end
