@@ -46,3 +46,12 @@ post('/dealerships/:id') do
   @dealership.add_vehicle(Vehicle.new(make, model, year))
   erb(:dealership)
 end
+
+get('/cars') do
+  @dealerships = Dealership.all
+  erb(:cars)
+end
+
+get('/*') do
+  erb(:index)
+end

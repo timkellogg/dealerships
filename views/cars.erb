@@ -1,0 +1,15 @@
+<h2>All Available Cars</h2>
+
+<ul>
+
+  <% @dealerships.each do | dealership | %>
+
+    <% dealership.cars.each do | car | %>
+
+      <li><a href="/dealerships/<%= dealership.id %>/cars/<%= car.id %>"><%= car.make %> <%= car.model %> <%= car.year %></a></li>
+
+    <% end %>
+
+  <% end %>
+
+</ul>
