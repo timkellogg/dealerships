@@ -10,7 +10,6 @@ describe('when using the dealership site', { :type => :feature }) do
   end
 end
 
-
 describe('when viewing dealerships page', { :type => :feature }) do
   it('shows a list of dealerships') do
     visit '/dealerships'
@@ -29,8 +28,19 @@ describe('when adding a dealership page', { :type => :feature }) do
 end
 
 describe('when viewing an individual dealer page', { :type => :feature }) do
-  it('shows a list of cars the dealer own') do
+  before() do
     visit '/dealerships/1'
+  end
+
+  it('shows a list of cars the dealer own') do
     expect(page).to have_content('Car Listing')
+  end
+
+  it('redirects to page with updated car listing when user adds a car') do
+    fill_in 'make',  with: 'Chevy'
+    fill_in 'model', with: 'Corvette'
+    fill_in 'year',  with: '2015'
+    click_button 'Add'
+    expect(page).to have_content('Chevy Corvette 2015')
   end
 end

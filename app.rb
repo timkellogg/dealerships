@@ -37,3 +37,12 @@ get('/dealerships/:id') do
   @dealership = Dealership.find(params.fetch('id').to_i())
   erb(:dealership)
 end
+
+post('/dealerships/:id') do
+  @dealership = Dealership.find(params.fetch('id').to_i())
+  make  = params.fetch 'make'
+  model = params.fetch 'model'
+  year  = params.fetch('year').to_i
+  @dealership.add_vehicle(Vehicle.new(make, model, year))
+  erb(:dealership)
+end
