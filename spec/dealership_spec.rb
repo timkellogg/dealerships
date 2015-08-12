@@ -7,6 +7,7 @@ describe(Dealership) do
   before() do
     @test_dealership = Dealership.new("Dave's Cars")
     @test_vehicle = Vehicle.new('Make', 'Model', 2012)
+    Dealership.clear
   end
 
   describe('#name') do
@@ -44,6 +45,20 @@ describe(Dealership) do
     it('adds a car into the the cars array') do
       @test_dealership.add_vehicle(@test_vehicle)
       expect(@test_dealership.cars).to eq([@test_vehicle])
+    end
+  end
+
+  describe('.find') do
+    it('returns a dealership by its id') do
+      @test_dealership.save
+      expect(Dealership.find(1)).to eq(@test_dealership)
+    end
+  end
+
+  describe('.clear') do
+    it('clears the array of all dealerships') do
+      Dealership.clear
+      expect(Dealership.all).to eq([])
     end
   end
 
