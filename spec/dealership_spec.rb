@@ -21,16 +21,16 @@ describe(Dealership) do
     end
   end
 
+  describe('#id') do
+    it('returns a dealership\'s id') do
+      expect(@test_dealership.id).to eq(1)
+    end
+  end
+
   describe('.save') do
     it('saves a dealership in the dealerships array') do
       @test_dealership.save
       expect(Dealership.all).to eq([@test_dealership])
-    end
-  end
-
-  describe('#id') do
-    it('returns a dealership\'s id') do
-      expect(@test_dealership.id).to eq(1)
     end
   end
 

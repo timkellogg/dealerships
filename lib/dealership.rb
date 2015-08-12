@@ -7,4 +7,13 @@ class Dealership
     @name = name
     @id = @@dealerships.length + 1
   end
+
+  define_singleton_method(:all) do
+    @@dealerships
+  end
+
+  define_method(:save) do
+    @@dealerships.push(self)
+  end
+  
 end
