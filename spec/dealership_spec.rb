@@ -1,6 +1,7 @@
 require 'dealership'
 require 'rspec'
 require 'vehicle'
+require 'pry'
 
 describe(Dealership) do
 
@@ -59,6 +60,14 @@ describe(Dealership) do
     it('clears the array of all dealerships') do
       Dealership.clear
       expect(Dealership.all).to eq([])
+    end
+  end
+
+  describe('.find_car') do
+    it('returns the dealership a car is stored in by search for the id') do
+      @test_dealership.add_vehicle(@test_vehicle)
+      @test_dealership.save
+      expect(Dealership.find_car(@test_vehicle.id)).to eq(@test_dealership)
     end
   end
 
