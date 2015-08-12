@@ -18,6 +18,8 @@ class Vehicle
     @@vehicles.push(self)
   end
 
-  
+  define_singleton_method(:clear) do
+    @@vehicles = Array.new
+  end
 
 end
